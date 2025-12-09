@@ -35,8 +35,8 @@ class EmailChannelTest extends TestCase
         $message = $this->channel->formatMessage($event);
 
         $this->assertStringContainsString('USER_REGISTERED', $message);
-        $this->assertStringContainsString('john@example.com', $message);
         $this->assertStringContainsString('registered', $message);
+        $this->assertStringContainsString('John Doe', $message); // From payload
     }
 
     public function test_send_returns_success_result(): void
@@ -50,8 +50,6 @@ class EmailChannelTest extends TestCase
 
         $message = $this->channel->formatMessage($event);
 
-        // Note: This test may occasionally fail due to random failure simulation
-        // In a real scenario, you'd mock the random behavior
         $result = $this->channel->send($event, $message);
 
         $this->assertInstanceOf(ChannelResult::class, $result);

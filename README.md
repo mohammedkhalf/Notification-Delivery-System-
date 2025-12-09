@@ -60,5 +60,3 @@ The system is organized into four main layers following DDD principles:
 - `GET /api/notifications/event/{eventId}` - Get all notifications for an event
 - `GET /api/notifications/failed` - List failed deliveries
 - `GET /api/notifications/dead-letter` - List dead letter notifications
-
-## Configuration

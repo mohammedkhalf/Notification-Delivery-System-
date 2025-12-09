@@ -10,6 +10,7 @@ class RetryService
     public function __construct(
         private readonly NotificationRepositoryInterface $notificationRepository,
         private int $maxAttempts,
+        private readonly int $baseDelaySeconds = 60
     ) {}
 
     public function retryFailedNotifications(int $limit = 50): void
